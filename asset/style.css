@@ -2763,6 +2763,25 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn{
     border: none;
 }
 
+
+a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn_dispose{
+       background: #000;
+    color: #fff!important;
+    padding: 13px 57px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 11px 57px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    border-radius: 8px;
+    /* margin-top: 25px; */
+    color: #fff!important;
+    border: none;
+    padding: 16px 57px;
+    font-style: normal;
+    font-weight: 600;
+}
 .about_tab_{
     margin-bottom: 16px!important;
 }
