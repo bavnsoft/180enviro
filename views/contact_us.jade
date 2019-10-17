@@ -1,0 +1,94 @@
+include Layout/header
+
+#support.section.wb
+  .container
+    .section-title.text-center
+      h3 Contact US
+    // end title
+    .row
+      .col-md-6
+        .contact_form
+          #message
+          form#contactform.row(action='contact.php', name='contactform', method='post')
+            fieldset.row-fluid
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                .form-group
+                    input#emailname.form-control(type='text', required='')
+                    |         
+                    label.contact_p.form-control-placeholder(for='name',) Email Address
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                 .form-group
+                    input#Subject.form-control(type='text', required='',)
+                    |         
+                    label.contact_p.form-control-placeholder(for='name') Subject
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                textarea.form-control( rows='6', id="comment", placeholder='Message')
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-center
+                button.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn(type='button', style="background: #505050;",onclick="save()")  Send 
+      // end col
+      .col-md-6
+        .right-box-contact
+          .support-info
+            .info-title
+              i.fa.fa-phone.fa-rotate-270(aria-hidden='true')
+              h4 Phone
+              |                                 6102 0000
+              // <span>Booking Time: 0900 – 2000 Hrs</span>
+        .right-box-contact
+          .support-info
+            .info-title
+              i.fa.fa-envelope(aria-hidden='true')
+              h4 Email
+              |                                 info@peu.com
+              // <span>Help Us Improve!</span>
+        .right-box-contact
+          .support-info
+            .info-title
+              i.fa.fa-map-marker(aria-hidden='true')
+              h4 Location
+              |                                 123 Street, Perth, WA
+        #map
+      // end col
+      // end row
+      // end container
+      // end section
+
+
+
+include Layout/footer
+script.
+
+  function save(){
+       $("#preloader").show(); 
+       var emailname = $("#emailname").val();
+       var Subject = $("#Subject").val();
+       var message = $("#comment").val();
+      
+        var data = {
+         emailname : emailname,
+         Subject : Subject,
+         message : message
+         }
+        var request = $.ajax({
+            url: "/contact_us",
+            type: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify(data),
+            
+        });
+
+        request.done(function(data) {
+          $("#preloader").hide();   
+              swal({
+                  title: "Success!",
+                  text: "Thanks!",
+                  icon: "success",
+                });    
+
+              window.location = "/"; 
+          
+        });
+
+  };

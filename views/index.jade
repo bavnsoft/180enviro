@@ -1,0 +1,136 @@
+include Layout/header
+
+
+.about-box
+ .container-fluid
+  .row
+    .col-md-6.view_materials_left_
+      .message-box.right-ab
+        h4 View materials avaible
+        p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_left_btn(href='#')  View More 
+    .col-md-6.view_materials_right_
+      .message-box.right-ab
+        h4 Dispose of materials with us
+        p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn(href='#')  Dispose now 
+#testimonials.section.lb
+  .container
+  .section-title.row.text-center
+    .col-md-8.col-md-offset-2
+      h3 About us
+      p.lead
+        | Lorem Ipsum is simply dummy text of the printing and typesetting
+        | industry. Lorem Ipsum has been the industry's standard dummy text
+        | ever since the 1500s, when an unknown printer took a galley of type
+        | and scrambled it to make a type specimen book.
+      a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn(href='/about-us', style="background: #505050; font-weight: 400;")  Read more 
+    // end col
+    // end title
+    // end container
+    // end section
+#agent.parallax.section.db.parallax-off(style='background: #313131!important; padding: 40px 0px;')
+  .container
+    .section-title.row.text-center
+      .col-md-12.how_it_w
+        h3 How its work
+        img(src='./images/how_its_work.png', style="width: 95%;")
+      // end col
+      // end title
+      .row
+        .col-md-6
+        // end col
+        .col-md-3
+        // end col
+        .col-md-3
+        // end col
+        // end row
+#support.section.wb
+  .container
+    .section-title.text-center
+      h3 Contact US
+    // end title
+    .row
+      .col-md-6
+        .contact_form
+          #message
+          form#contactform.row(action='contact.php', name='contactform', method='post')
+            fieldset.row-fluid
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                .form-group
+                    input#emailname.form-control(type='text', required='')
+                    |         
+                    label.contact_p.form-control-placeholder(for='name',) Email Address
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                 .form-group
+                    input#Subject.form-control(type='text', required='',)
+                    |         
+                    label.contact_p.form-control-placeholder(for='name') Subject
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12
+                textarea.form-control(id="comment" rows='6', placeholder='Message')
+              .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-center
+                button.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn(type='button', style="background: #505050;",onclick="save()")  Send 
+      // end col
+      .col-md-6
+        .right-box-contact
+          .support-info
+            .info-title
+              i.fa.fa-phone.fa-rotate-270(aria-hidden='true')
+              h4 Phone
+              |                                 6102 0000
+              // <span>Booking Time: 0900 – 2000 Hrs</span>
+        .right-box-contact
+          .support-info
+            .info-title
+              i.fa.fa-envelope(aria-hidden='true')
+              h4 Email
+              |                                 info@peu.com
+              // <span>Help Us Improve!</span>
+        .right-box-contact
+          .support-info
+            .info-title
+              i.fa.fa-map-marker(aria-hidden='true')
+              h4 Location
+              |                                 123 Street, Perth, WA
+        #map
+      // end col
+      // end row
+      // end container
+      // end section
+include Layout/footer
+script.
+
+  function save(){
+       $("#preloader").show(); 
+       var emailname = $("#emailname").val();
+       var Subject = $("#Subject").val();
+       var message = $("#comment").val();
+      
+        var data = {
+         emailname : emailname,
+         Subject : Subject,
+         message : message
+         }
+        var request = $.ajax({
+            url: "/contact_us",
+            type: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify(data),
+            
+        });
+
+        request.done(function(data) {
+          $("#preloader").hide();   
+              swal({
+                  title: "Success!",
+                  text: "Thanks!",
+                  icon: "success",
+                });    
+
+              window.location = "/"; 
+          
+        });
+
+  };

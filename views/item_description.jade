@@ -1,0 +1,106 @@
+include Layout/header
+
+#testimonials.section.lb(style='background-color: #fff;')
+  .container
+    .row
+      .col-sm-1.col_1_
+        a(href="/items-available")
+          img.back_icon(src="./icons/arrow-left-solid.svg")
+      .col-sm-4(style='marging-left: 0px;')
+        h2.product-description#category(style='color: #A5A7A9; margin-bottom: 0px;') 
+        h3.product-title#category_
+    .card_
+      .container-fliud
+        .wrapper.row
+          .preview.col-md-6
+            .preview-pic.tab-content
+              #pic-1.tab-pane.active
+                img(src='images/item-background.png')
+            .preview-pic.tab-content.purchase_btn
+              a.btn.btn-sm.btn-primary(href='')
+                span.price_new_des#price 
+          .details.col-md-6
+            h3.product-title#category_1 Lithium Grease
+            h3.product-title#title 
+            p.product-description#totalavailable(style='color: #808184; margin-bottom: 0px;') 
+            p.product-description#condition(style='color: #808184; margin-bottom: 0px;') 
+            p.product-description#Location(style='color: #808184; margin-bottom: 0px;')
+            p.product-description#available_now(style='color: #808184; margin-bottom: 0px;')
+            p.product-description#Minimum(style='color: #808184; margin-bottom: 0px;') 
+  .container.ex_main
+    h1 Explanation:
+    p.lead_desc_expla#des
+      
+    h2(style='text-align: right;') Our number: 9400 000
+    
+#testimonials.section.lb(style='background: #D8D8D8;')
+  .container
+    .row
+      .col-sm-3
+      .col-sm-6._cantact_bottom_
+        form#contactform.row(action='contact.php', name='contactform', method='post')
+         .floating-form
+            .floating-label
+              input.floating-input(type='text', placeholder=' ',id="phone")
+              span.highlight
+              label.contact_label_ Phone number
+            .floating-label
+              input.floating-input(type='email',  placeholder=' ',id="address")
+              span.highlight
+              label.contact_label_ Email address
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-center
+              button.contact_me_(type='button', style="background: #505050;",onclick="save_me()")  Contact me 
+
+      .col-sm-3
+
+
+
+include Layout/footer
+
+script.
+ var item = JSON.parse(localStorage.getItem('item'));
+ $("#category").html(item[0].broadcategory);
+ $("#category_").html(item[0].category);
+ $("#category_1").html(item[0].category);
+ $("#totalavailable").html("Total available: "+item[0].totalavailable);
+ $("#condition").html("Condition: "+item[0].condition);
+ $("#title").html(item[0].brand+" "+ item[0].totalvolume);
+ $("#des").html(item[0].explanation);
+ $("#Minimum").html("Minimum order : "+item[0].minimumorder);
+ $("#Minimum").html("Location : "+item[0].location);
+ $("#available_now").html("Available now : "+item[0].availablenow);
+ $("#price").html("$"+item[0].price+" PER CONTAINER");
+
+ function save_me(){
+      $("#preloader").show();   
+      var item = JSON.parse(localStorage.getItem('item'));
+      var broadcategory = item[0].broadcategory;
+      var price = item[0].price;
+      var itemdescription = item[0].itemdescription;
+      var phone = $("#phone").val();
+      var emailaddress = $("#address").val();
+      var request = $.ajax({
+          url: "/book_order",
+          type: "POST",
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          data: JSON.stringify({phone : phone,email:emailaddress,broadcategory:broadcategory,price:price,itemdescription:itemdescription}),
+          
+        });
+
+        request.done(function(data) {
+              $("#preloader").hide();   
+              swal({
+                  title: "Success!",
+                  text: "Thanks for Inquire!",
+                  icon: "success",
+                });    
+
+              window.location = "/items-available";   
+        });
+
+        request.fail(function(jqXHR, textStatus) {
+          alert( "Request failed: " + textStatus );
+        });
+ }

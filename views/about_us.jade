@@ -1,0 +1,85 @@
+include Layout/header
+
+#testimonials.section.lb
+  .container
+    .section-title.about_tab_.row.text-center.exxtend_r
+      .col-sm-1
+      .col-md-10
+        h3 About us
+        .row(style='background: #54F24E;padding: 18px 4px 12px;border-radius: 5px;')
+          .col-sm-6.pull-left(style='text-align: left')
+            h1 Who are we?
+          .col-sm-6.pull-right(style='text-align: right;')
+            img(src='https://img.icons8.com/android/50/000000/plus.png', style='height: 23px;cursor: pointer;',onclick="plus1()")
+        p.lead#div_content1
+          | Lorem Ipsum is simply dummy text of the printing and typesetting
+          | industry. Lorem Ipsum has been the industry's standard dummy text
+          | ever since the 1500s, when an unknown printer took a galley of type
+          | and scrambled it to make a type specimen book.
+      // end col
+      .col-sm-1
+    // end title
+    .section-title.about_tab_.row.text-center.exxtend_r
+      .col-sm-1
+      .col-md-10
+        .row(style='background: #54F24E;padding: 15px 2px;')
+          .col-sm-8.col-xs-10.pull-left(style='text-align: left')
+            h1 Why should I dispose of materials with you?
+          .col-sm-4.col-xs-2.pull-right(style='text-align: right;')
+            img(src='https://img.icons8.com/android/50/000000/plus.png', style='height: 23px;cursor: pointer;',onclick="plus2()")
+        p.lead#div_content2(style="display:none")
+          | Lorem Ipsum is simply dummy text of the printing and typesetting
+          | industry. Lorem Ipsum has been the industry's standard dummy text
+          | ever since the 1500s, when an unknown printer took a galley of type
+          | and scrambled it to make a type specimen book.    
+      // end col
+      .col-sm-1
+    // end title
+    .section-title.about_tab_.row.text-center.exxtend_r
+      .col-sm-1
+      .col-md-10
+        .row(style='background: #54F24E;padding: 15px 2px;')
+          .col-sm-8.col-xs-10.pull-left(style='text-align: left')
+            h1 Can I trust the quality of the materials I am buying?
+          .col-sm-4.col-xs-2.pull-right(style='text-align: right;')
+            img(src='https://img.icons8.com/android/50/000000/plus.png', style='height: 23px;cursor: pointer;',onclick="plus3()")
+        p.lead#div_content3(style="display:none")
+          | Lorem Ipsum is simply dummy text of the printing and typesetting
+          | industry. Lorem Ipsum has been the industry's standard dummy text
+          | ever since the 1500s, when an unknown printer took a galley of type
+          | and scrambled it to make a type specimen book.     
+      // end col
+      .col-sm-1
+    .section-title.about_tab_.row.text-center.exxtend_r
+      .col-sm-1
+      .col-md-10
+        .row(style='background: #54F24E;padding: 15px 2px;')
+          .col-sm-8.col-xs-10.pull-left(style='text-align: left')
+            h1 Why would someone dispose of good materials?
+          .col-sm-4.col-xs-2.pull-right(style='text-align: right;')
+            img(src='https://img.icons8.com/android/50/000000/plus.png', style='height: 23px;cursor: pointer;',onclick="plus4()")
+        p.lead#div_content4(style="display:none")
+          | Lorem Ipsum is simply dummy text of the printing and typesetting
+          | industry. Lorem Ipsum has been the industry's standard dummy text
+          | ever since the 1500s, when an unknown printer took a galley of type
+          | and scrambled it to make a type specimen book.     
+      // end col
+      .col-sm-1
+  // end container
+
+
+
+include Layout/footer
+script.
+  function plus1(){
+    $('#div_content1').slideToggle('slow');
+  }
+  function plus2(){
+    $('#div_content2').slideToggle('slow');
+  }
+  function plus3(){
+    $('#div_content3').slideToggle('slow');
+  }
+  function plus4(){
+    $('#div_content4').slideToggle('slow');
+  }

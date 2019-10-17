@@ -1,0 +1,136 @@
+include Layout/header
+
+#testimonials.section.lb
+  .container
+    .row
+      .col-sm-2
+      .col-sm-8
+        .row
+          .col-sm-4
+            .material_info
+              .material_number
+                h1 1
+            p.mat_text_(style='text-align: center;')  Complete material information
+          .col-sm-4
+            .material_info
+              .material_number
+                h1 2
+            p.mat_text_(style='text-align: center;') We notify disposal sites opportunity to quote
+          .col-sm-4
+            .material_info
+              .material_number
+                h1 3
+            p.mat_text_(style='text-align: center;') Receive quotes for cheapest disposal
+      .col-sm-2
+
+
+      
+#testimonials.section.lb
+  .container.main_quest_
+    .row
+      .col-sm-1
+      .col-sm-10
+        form
+          .form-group
+            label(for='exampleInputEmail1') Full details of material to be disposed:
+            textarea#disposed.form-control(aria-describedby='emailHelp')
+          .form-group
+            label(for='exampleInputPassword1') How are the materials stored, what kind of units and how many?
+            textarea#materials .form-control(type='text')
+          .row
+            .col-sm-6(style='padding-right: 0;')
+              label.radio.radio_left_
+                | Not dangerous goods
+                input(type='radio', checked='checked', name='radio1')
+                span.checkround
+            .col-sm-6(style='padding-left: 0;')
+              .custom-control.custom-radio
+                label.radio.radio_right_
+                  | Dangerous goods
+                  input(type='radio', checked='checked', name='radio1')
+                  span.checkround
+          .row
+            .col-sm-6(style='padding-right: 0;')
+              label.radio.radio_left_
+                | Pickup by disposal site
+                input(type='radio', checked='checked', name='radio2')
+                span.checkround
+            .col-sm-6(style='padding-left: 0;')
+              .custom-control.custom-radio
+                label.radio.radio_right_
+                  | Delivery to disposal site by us
+                  input(type='radio', checked='checked', name='radio2')
+                  span.checkround
+          .row(style='margin-bottom: 45px;')
+            .col-sm-6(style='padding-right: 0;')
+              label.radio.radio_left_
+                | We regulary dispose of this material
+                input(type='radio', checked='checked', name='radio3')
+                span.checkround
+            .col-sm-6(style='padding-left: 0;')
+              .custom-control.custom-radio
+                label.radio.radio_right_
+                  | This is a one-off or rare disposal
+                  input(type='radio', checked='checked', name='radio3')
+                  span.checkround
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_(for='username') Name:
+                .col-sm-8
+                  input#username.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_(for='username') Business name:
+                .col-sm-8
+                  input#username.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_(for='username') Email address:
+                .col-sm-8
+                  input#username.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_(for='username') Phone number:
+                .col-sm-8
+                  input#username.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_ Address of materials or approximate location:
+                .col-sm-8
+                  textarea#username.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+      .col-sm-1
+  .row.text-center
+    button.btn.btn-light.submit_form_(type='button',,onclick='save()')  Submit 
+
+
+
+
+include Layout/footer
+script.
+ function save(){
+   var disposed = $("#disposed").val();
+   var materials = $("#materials").val();
+   console.log(disposed);
+   console.log(materials);
+ }
+  

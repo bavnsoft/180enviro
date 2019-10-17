@@ -1,0 +1,93 @@
+doctype html
+html(lang='en')
+  // Basic
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    // Mobile Metas
+    meta(name='viewport', content='width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    // Site Metas
+    title 180 Enviro Upcyclers
+    meta(name='keywords', content='')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    // Site Icons
+    link(rel='shortcut icon', href='images/favicon.ico', type='image/x-icon')
+    link(rel='apple-touch-icon', href='images/apple-touch-icon.png')
+    // Bootstrap CSS
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // Site CSS
+    link(rel='stylesheet', href='style.css')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    // Colors CSS
+    link(rel='stylesheet', href='css/colors.css')
+    // ALL VERSION CSS
+    link(rel='stylesheet', href='css/versions.css')
+    // Responsive CSS
+    link(rel='stylesheet', href='css/responsive.css')
+    // Custom CSS
+    link(rel='stylesheet', href='css/custom.css')
+    // Modernizer for Portfolio
+    script(src='js/modernizer.js')
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body.realestate_version
+    // LOADER
+    #preloader
+      span.loader
+        span.loader-inner
+    // end loader
+    // END LOADER
+    header.header.header_style_01
+      nav.megamenu.navbar.navbar-default
+        .container
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/') 180 Enviro Upcyclers
+          #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                a.active(href='/') Home
+              li
+                a(href='#agent') How it's work 
+              li
+                a(href='/about-us') About us 
+              li
+                a(href='/receive-disposal-quote') Waste Disposal
+              li
+                a(href='/items-available') Items available
+              li
+                a(href='/contact-us') Contact Us
+    ul.slideshow
+      li
+        span Summer
+      li
+        span Fall
+      li
+        span Winter
+      li
+        span Spring
+    .parallax.first-section
+      .container
+        .row
+          .col-md-10.col-sm-12
+            .big-tagline.clearfix(style="padding: 50px;")
+              h2 180 Enviro Upcyclers
+              p.lead
+                | Receive and reintroduce quality materials back into the economy. 
+                br
+                |Reducing waste, decreasing costs of production, reducing the need
+                br
+                |to re-produce and re-ship.
+                br
+                
+              a.btn.btn-light.btn-radius.grd1.btn-brd(data-scroll='', href='/items-available', style="margin-top: 15px; font-weight: 500;") View items available now
+          .col-md-4.wow.slideInLeft.hidden-xs.hidden-sm
+        // end row
+        // end container
+        // end section

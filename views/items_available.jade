@@ -1,0 +1,204 @@
+include Layout/header
+
+#testimonials.section.lb(style='background-color: #D9D9D9;')
+  .container#scrrol
+    .section-title.about_tab_.row.text-center
+      h1.title_itme_a(style='margin-bottom:27px') Items available
+      .col-sm-2.available_button.first-btn.Items_available_.active
+        a.btn(href='#scrrol',onclick='filter("All items")') All items
+      .col-sm-2.available_button.second-btn.Oils_Greases_
+        a.btn(href='#scrrol',onclick='filter("Oils & Greases")') Oils & Greases
+      .col-sm-2.available_button.third-btn.Chemicals_
+        a.btn(href='#scrrol',onclick='filter("Chemicals")') Chemicals
+
+      .col-sm-2.available_button.fourth-btn.Plastics_
+        a.btn(href='#scrrol',onclick='filter("Plastics")') Plastics
+
+      .col-sm-2.available_button.first-btn.fifth-btn.Constructionmaterials_
+        a.btn(href='#scrrol',onclick='filter("Construction materials")') Construction materials
+    // end title
+    // end container
+// end section
+#testimonials.section.lb(style='background-color: #FFFFF!important;')
+  .container
+    .row#div_blank_
+      - for (var i = 0; i < data.length ; ++i) {
+          .col-md-4.pagi 
+            figure.card_.card-product
+              ._item_name
+                a.btn.btn-sm(href='#')
+                  span.price-new #{data[i].broadcategory}
+              .img-wrap
+                img(src='images/item-background.png')
+              .view_item
+                button.btn.btn-sm.btn-item.float-right.price_(type='button',onclick='description("#{data[i].explanation}","#{data[i].minimumorder}","#{data[i].availablenow}","#{data[i].location}","#{data[i].broadcategory}","#{data[i].category}","#{data[i].brand}","#{data[i].itemdescription}","#{data[i].totalvolume}","#{data[i].totalavailable}","#{data[i].condition}","#{data[i].price}")')
+                  span.price-new View item
+              figcaption.info-wrap
+                h4.title.pro_tit_  #{data[i].category}
+                p.desc #{data[i].brand} #{data[i].itemdescription}
+                p.desc #{(data[i].totalvolume) ? data[i].totalvolume : "N/A"}
+                .rating-wrap
+                  .label-rating Total avaible: #{data[i].totalavailable}
+                // rating-wrap.//
+                .rating-wrap
+                  .label-rating Condition: #{data[i].condition}
+                // rating-wrap.//
+              .bottom-wrap
+                a.btn.btn-sm.btn-primary.float-right.price_(href='')
+                  span.price-new  $ #{data[i].price} PER DRUM
+      - } 
+
+    .row  
+      .col-md-4 
+      .col-md-4.text-center 
+         ul#pagin
+      .col-md-4    
+      
+
+
+
+
+
+
+include Layout/footer
+script.
+  pageSize = 9;
+
+  var pageCount =  $(".pagi").length / pageSize;
+    
+     for(var i = 0 ; i<pageCount;i++){
+        
+       $("#pagin").append('<li><a href="#scrrol" >'+(i+1)+'</a></li> ');
+     }
+        $("#pagin li").first().find("a").addClass("current")
+    showPage = function(page) {
+      $(".pagi").hide();
+      $(".pagi").each(function(n) {
+          if (n >= pageSize * (page - 1) && n < pageSize * page)
+              $(this).show();
+      });        
+  }
+    
+  showPage(1);
+
+  $("#pagin li a").click(function() {
+      $("#preloader").show(); 
+      $("#pagin li a").removeClass("current");
+      $(this).addClass("current");
+      showPage(parseInt($(this).text())) 
+       setTimeout(function(){
+          $("#preloader").hide(); 
+        },1000);
+      
+  });
+
+ 
+
+  function filter(value){
+   console.log(value);
+  
+    if(value == "Chemicals"){
+         $(".Items_available_").removeClass('active');
+        $(".Constructionmaterials_").removeClass('active');
+        $(".Chemicals_").addClass('active');
+        $(".Plastics_").removeClass('active');
+        $(".Oils_Greases_").removeClass('active');
+     
+     }
+
+     if(value=="All items"){
+        $(".Items_available_").addClass('active');
+        $(".Constructionmaterials_").removeClass('active');
+        $(".Chemicals_").removeClass('active');
+        $(".Plastics_").removeClass('active');
+        $(".Oils_Greases_").removeClass('active');
+     }
+     if(value=="Oils & Greases"){
+
+        $(".Items_available_").removeClass('active');
+        $(".Constructionmaterials_").removeClass('active');
+        $(".Chemicals_").removeClass('active');
+        $(".Plastics_").removeClass('active');
+        $(".Oils_Greases_").addClass('active');
+
+     }
+     if(value=="Plastics"){
+        $(".Items_available_").removeClass('active');
+        $(".Constructionmaterials_").removeClass('active');
+        $(".Chemicals_").removeClass('active');
+        $(".Plastics_").addClass('active');
+        $(".Oils_Greases_").removeClass('active');
+     
+     }
+
+     if(value=="Construction materials"){
+        $(".Constructionmaterials_").addClass('active');
+        $(".Items_available_").removeClass('active');
+        $(".Chemicals_").removeClass('active');
+        $(".Plastics_").removeClass('active');
+        $(".Oils_Greases_").removeClass('active');
+     }
+
+    $("#preloader").show(); 
+    var request = $.ajax({
+          url: "/filter_data",
+          type: "POST",
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          data: JSON.stringify({value : value}),
+          
+        });
+
+        request.done(function(data) {
+           $("#div_blank_").html('');
+             console.log(data.data);
+             var result =data.data ;
+           for(let i = 0;i < result.length; i++){
+             if(result[i].totalvolume){
+               var totalvolume =  result[i].totalvolume;
+             }else{
+               var totalvolume =  'N/A'; 
+             }
+
+              
+
+               var html = '<div class="col-md-4 pagi" style="display: block;"> <figure class="card_ card-product"><div class="_item_name"><a href="" class="btn btn-sm "><span class="price-new">'+result[i].broadcategory+'</span></a></div><div class="img-wrap"><img src="images/item-background.png"></div><div class="view_item"><a href="/item-description" class="btn btn-sm btn-item float-right price_"><span class="price-new">View item</span></a></div><figcaption class="info-wrap"><h4 class="title pro_tit_"> '+result[i].category+'</h4><p class="desc">'+result[i].brand+" "+result[i].itemdescription+ '</p><p class="desc">'+totalvolume+'</p><div class="rating-wrap"><div class="label-rating">Total avaible: '+result[i].totalavailable+'</div></div><!-- rating-wrap.//--><div class="rating-wrap"><div class="label-rating">Condition: '+result[i].condition+'</div></div><!-- rating-wrap.//--></figcaption><div class="bottom-wrap"><a href="" class="btn btn-sm btn-primary float-right price_"><span class="price-new"> $ '+result[i].price+' PER DRUM</span></a></div></figure></div>';
+               $("#div_blank_").append(html);
+
+           }
+            $("#preloader").hide();
+
+            
+        
+        });
+
+        request.fail(function(jqXHR, textStatus) {
+          alert( "Request failed: " + textStatus );
+        });
+  }
+
+  function description(explanation,minimumorder,availablenow,location,broadcategory,category,brand,itemdescription,totalvolume,totalavailable,condition,price){
+    var data = [];
+     $("#preloader").show();
+    data.push({
+      broadcategory:broadcategory,
+      category:category,
+      brand:brand,
+      itemdescription:itemdescription,
+      totalvolume:totalvolume,
+      totalavailable:totalavailable,
+      condition:condition,
+      price:price,
+      explanation:explanation,
+      minimumorder:minimumorder,
+      availablenow:availablenow,
+      location:location,
+    })
+
+    localStorage.setItem('item',JSON.stringify(data));
+    window.location = "/item-description";
+
+    console.log(broadcategory,category);
+
+  }

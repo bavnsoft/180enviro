@@ -1,0 +1,181 @@
+include Layout/header
+
+#testimonials.section.lb
+  .container
+    .row
+      .col-sm-2
+      .col-sm-8
+        .row
+          .col-sm-4
+            .material_info
+              .material_number
+                h1 1
+            p.mat_text_(style='text-align: center;')  Complete material information
+          .col-sm-4
+            .material_info
+              .material_number
+                h1 2
+            p.mat_text_(style='text-align: center;') We notify disposal sites opportunity to quote
+          .col-sm-4
+            .material_info
+              .material_number
+                h1 3
+            p.mat_text_(style='text-align: center;') Receive quotes for cheapest disposal
+      .col-sm-2
+
+
+      
+#testimonials.section.lb
+  .container.main_quest_
+    .row
+      .col-sm-1
+      .col-sm-10
+        form
+          .form-group
+            label.waste_di(for='exampleInputEmail1') Full details of material to be disposed:
+            textarea#disposed.form-control(aria-describedby='emailHelp')
+          .form-group
+            label.waste_di(for='exampleInputPassword1') How are the materials stored, what kind of units and how many?
+            textarea#materials.form-control(type='text')
+          .row
+            .col-sm-6(style='padding-right: 0;')
+              label.waste_di.radio.radio_left_
+                | Not dangerous goods
+                input(type='radio', checked='checked', value="Not dangerous goods" name='radio1')
+                span.checkround
+            .col-sm-6(style='padding-left: 0;')
+              .custom-control.custom-radio
+                label.waste_di.radio.radio_right_
+                  | Dangerous goods
+                  input(type='radio',  value="Dangerous goods" name='radio1')
+                  span.checkround
+          .row
+            .col-sm-6(style='padding-right: 0;')
+              label.waste_di.radio.radio_left_
+                | Pickup by disposal site
+                input(type='radio', checked='checked', value="Pickup by disposal site" name='radio2')
+                span.checkround
+            .col-sm-6(style='padding-left: 0;')
+              .custom-control.custom-radio
+                label.waste_di.radio.radio_right_
+                  | Delivery to disposal site by us
+                  input(type='radio',  value="Delivery to disposal site by us" name='radio2')
+                  span.checkround
+          .row(style='margin-bottom: 45px;')
+            .col-sm-6(style='padding-right: 0;')
+              label.waste_di.radio.radio_left_
+                | We regulary dispose of this material
+                input(type='radio', checked='checked', checked='checked', value="We regulary dispose of this material" name='radio3')
+                span.checkround
+            .col-sm-6(style='padding-left: 0;')
+              .custom-control.custom-radio
+                label.waste_di.radio.radio_right_
+                  | This is a one-off or rare disposal
+                  input(type='radio',  value="This is a one-off or rare disposal" name='radio3')
+                  span.checkround
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_.waste_di(for='username') Name:
+                .col-sm-8
+                  input#username.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_.waste_di(for='username') Business name:
+                .col-sm-8
+                  input#Business.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_.waste_di(for='username') Email address:
+                .col-sm-8
+                  input#Email.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_.waste_di(for='username') Phone number:
+                .col-sm-8
+                  input#Phone.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+          .row
+            .col-sm-1
+            .col-sm-10
+              .form-group
+                .col-sm-4
+                  h1.bottom_label_.waste_di Address of materials or approximate location:
+                .col-sm-8
+                  textarea#approximate_location.form-control(type='text', placeholder='', style='margin-bottom: 13px;')
+            .col-sm-1
+      .col-sm-1
+  .row.text-center
+    button.submit_form_waste_d(type='button',onclick='save()',id="submitBtn")  Submit 
+
+
+
+
+include Layout/footer
+script.
+ $("#submitBtn").click(function(){   
+   $("#preloader").show(); 
+   var disposed = $("#disposed").val();
+   var materials = $("#materials").val();
+   var Notdangerousgoods = $("input[name='radio1']:checked").val();
+   var Pickup_by_disposal_site = $("input[name='radio2']:checked").val();
+   var regulary_dispose= $("input[name='radio3']:checked").val();
+   var username= $("#username").val();
+   var Business= $("#Business").val();
+   var Email= $("#Email").val();
+   var Phone= $("#Phone").val();
+   var approximate_location= $("#approximate_location").val();
+   var data = {
+         disposed : disposed,
+         materials : materials,
+         Notdangerousgoods : Notdangerousgoods,
+         Pickup_by_disposal_site : Pickup_by_disposal_site,
+         regulary_dispose : regulary_dispose,
+         username : username,
+         Business : Business,
+         Email : Email,
+         Phone : Phone,
+         approximate_location : approximate_location,
+         }
+   var request = $.ajax({
+            url: "/receive_disposal_quote",
+            type: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify(data),
+            
+        });
+
+        request.done(function(data) {
+
+            $("#preloader").hide();   
+              swal({
+                  title: "Success!",
+                  text: "Thanks!",
+                  icon: "success",
+                });    
+
+              window.location = "/items-available"; 
+          
+        });
+
+        request.fail(function(jqXHR, textStatus) {
+          alert( "Request failed: " + textStatus );
+        });
+ })
+  
