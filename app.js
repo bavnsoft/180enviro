@@ -254,7 +254,7 @@ app.post('/receive_disposal_quote', function(req, res){
 
     transporter.sendMail({
               from: req.body.email, // sender address
-              to: "bavnsofts@gmail.com" ,
+              to: "staff@180enviroupcyclers.com.au" ,
               subject:'Waste Disposal',
               html: html,
            }, function (err, responseStatus) {
@@ -273,7 +273,7 @@ app.post('/book_order',function(req,res){
 
       transporter.sendMail({
               from: req.body.email, // sender address
-              to: "bavnsofts@gmail.com from" ,
+              to: "staff@180enviroupcyclers.com.au" ,
               subject:'Received Inquire from '+req.body.email,
               html: "<div><table style='border: 1px solid;'><thead><tr><th style='text-align:left;border: 1px solid;padding: 12px;'>Email</th><td style='border: 1px solid;padding: 12px;'>"+req.body.email+"</td></tr><tr><th style='text-align:left;border: 1px solid;padding: 12px;'>Phone</th><td style='border: 1px solid;padding: 12px;'>"+req.body.phone+"</td></tr><tr><th style='text-align:left;border: 1px solid;padding: 12px;'>Category</th><td style='border: 1px solid;padding: 12px;'>"+req.body.broadcategory+"</td></tr><tr><th style='text-align:left;border: 1px solid;padding: 12px;'>Price</th><td style='border: 1px solid;padding: 12px;'>"+req.body.price+"</td></tr><tr><th style='text-align:left;border: 1px solid;padding: 12px;'>Description</th><td style='border: 1px solid;padding: 12px;'>"+req.body.itemdescription+"</td></tr></table></div>",
            }, function (err, responseStatus) {
@@ -294,7 +294,7 @@ app.post('/contact_us',function(req,res){
 
     transporter.sendMail({
               from: req.body.email, // sender address
-              to: "bavnsofts@gmail.com" ,
+              to: "staff@180enviroupcyclers.com.au" ,
               subject:req.body.Subject,
               html: html,
            }, function (err, responseStatus) {
