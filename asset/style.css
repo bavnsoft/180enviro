@@ -2844,7 +2844,7 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn_dispose{
     background: #505050!important;
     border: 1px solid #000!important;
     color:#fff!important;
-     border: none!important;
+         border: 1px solid #505050!important;
 }span.price-new {
     font-size: 13px;
     font-style: normal;
