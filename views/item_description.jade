@@ -1,4 +1,4 @@
-include Layout/header
+include Layout/inner_header
 
 #testimonials.section.lb(style='background-color: #fff;')
   .container
@@ -39,11 +39,14 @@ include Layout/header
       .col-sm-3
       .col-sm-6._cantact_bottom_
         form#contactform.row(action='contact.php', name='contactform', method='post')
+         .error 
+              h1  
          .floating-form
             .floating-label
               input.floating-input(type='text', placeholder=' ',id="phone")
               span.highlight
               label.contact_label_ Phone number
+          
             .floating-label
               input.floating-input(type='email',  placeholder=' ',id="address")
               span.highlight
@@ -67,18 +70,30 @@ script.
  $("#title").html(item[0].brand+" "+ item[0].totalvolume);
  $("#des").html(item[0].explanation);
  $("#Minimum").html("Minimum order : "+item[0].minimumorder);
- $("#Minimum").html("Location : "+item[0].location);
+ $("#Location").html("Location : "+item[0].location);
  $("#available_now").html("Available now : "+item[0].availablenow);
  $("#price").html("$"+item[0].price+" PER CONTAINER");
 
  function save_me(){
-      $("#preloader").show();   
+       
       var item = JSON.parse(localStorage.getItem('item'));
       var broadcategory = item[0].broadcategory;
       var price = item[0].price;
       var itemdescription = item[0].itemdescription;
       var phone = $("#phone").val();
+
+
       var emailaddress = $("#address").val();
+         if(phone==""){
+           $(".error").show();
+           $(".error h1").html(" Please enter phone number");
+           setTimeout(function(){
+             $(".error").hide();
+           },3000)
+           return false;
+         }
+     $("#preloader").show();  
+   
       var request = $.ajax({
           url: "/book_order",
           type: "POST",
@@ -93,7 +108,7 @@ script.
               $("#preloader").hide();   
               swal({
                   title: "Success!",
-                  text: "Thanks for Inquire!",
+                  text: "Inquiry recevied. Thanks.",
                   icon: "success",
                 });    
 

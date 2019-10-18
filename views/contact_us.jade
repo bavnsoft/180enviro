@@ -1,4 +1,4 @@
-include Layout/header
+include Layout/inner_header
 
 #support.section.wb
   .container
@@ -8,7 +8,8 @@ include Layout/header
     .row
       .col-md-6
         .contact_form
-          #message
+          #message_error
+            h1 
           form#contactform.row(action='contact.php', name='contactform', method='post')
             fieldset.row-fluid
               .col-lg-12.col-md-12.col-sm-12.col-xs-12
@@ -59,10 +60,47 @@ include Layout/footer
 script.
 
   function save(){
-       $("#preloader").show(); 
+     
        var emailname = $("#emailname").val();
        var Subject = $("#Subject").val();
        var message = $("#comment").val();
+
+       if(!emailname){
+          $("#message_error").show();
+
+          $("#message_error h1").html('Please enter email address');
+          setTimeout(function(){
+               $("#message_error").hide();
+          
+          },3000);
+         return false
+       }
+
+      if(!Subject){
+          $("#message_error").show();
+
+          $("#message_error h1").html('Please enter subject');
+          setTimeout(function(){
+               $("#message_error").hide();
+          
+          },3000);
+          return false
+   
+       }
+       if(!message){
+          $("#message_error").show();
+
+          $("#message_error h1").html('Please enter message');
+          setTimeout(function(){
+               $("#message_error").hide();
+          
+          },3000);
+
+          return false
+   
+       }
+
+        $("#preloader").show(); 
       
         var data = {
          emailname : emailname,
@@ -83,7 +121,7 @@ script.
           $("#preloader").hide();   
               swal({
                   title: "Success!",
-                  text: "Thanks!",
+                  text: "Inquiry recevied. Thanks.",
                   icon: "success",
                 });    
 

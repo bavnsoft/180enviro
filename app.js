@@ -96,6 +96,7 @@ app.get('/items-available', function(req, res){
               minimumorder:rows[i].minimumorder,
               availablenow:rows[i].availablenow,
               location:rows[i].location,
+              websitename:rows[i].websitename,
             })
             
 
@@ -180,6 +181,11 @@ app.post('/filter_data', function(req, res){
                   interestingto:rows[i].interestingto,
                   soldto:rows[i].soldto,
                   soldtocategory:rows[i].soldtocategory,
+                  explanation:rows[i].explanation.replace(/['']+/g, ''),
+                  minimumorder:rows[i].minimumorder,
+                  availablenow:rows[i].availablenow,
+                  location:rows[i].location,
+                  websitename:rows[i].websitename,
                 })
 
              }else{
@@ -198,6 +204,11 @@ app.post('/filter_data', function(req, res){
                   interestingto:rows[i].interestingto,
                   soldto:rows[i].soldto,
                   soldtocategory:rows[i].soldtocategory,
+                  explanation:rows[i].explanation.replace(/['']+/g, ''),
+                  minimumorder:rows[i].minimumorder,
+                  availablenow:rows[i].availablenow,
+                  location:rows[i].location,
+                  websitename:rows[i].websitename,
                 })
               }  
 

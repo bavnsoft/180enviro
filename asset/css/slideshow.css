@@ -196,3 +196,22 @@ body, html {
 .no-cssanimations .slideshow li span {
   opacity: 1;
 }
+.background_img  {
+ background-image: url(../uploads/header_img.jpg);
+    height: 58%;
+    /* z-index: 99999; */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    opacity: 0.2;
+    /* background-color: red; */
+    /* color: transparent; */
+    /* background-size: cover; */
+    background-position: 30% 53%!important;
+    background-repeat: none;
+    opacity: 5.8;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* opacity: 1; */
+    /* background: rgba(0,0,0,0.6); */
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../uploads/header_img.jpg);
+    background-size: cover!important;
+}

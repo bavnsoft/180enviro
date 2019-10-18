@@ -1,4 +1,4 @@
-include Layout/header
+include Layout/inner_header
 
 #testimonials.section.lb
   .container
@@ -31,6 +31,8 @@ include Layout/header
       .col-sm-1
       .col-sm-10
         form
+          .error_m
+            h1 
           .form-group
             label.waste_di(for='exampleInputEmail1') Full details of material to be disposed:
             textarea#disposed.form-control(aria-describedby='emailHelp')
@@ -120,15 +122,18 @@ include Layout/header
             .col-sm-1
       .col-sm-1
   .row.text-center
-    button.submit_form_waste_d(type='button',onclick='save()',id="submitBtn")  Submit 
+    button.submit_form_waste_d(type='button',id="submitBtn")  Submit 
 
 
 
 
 include Layout/footer
-script.
+script. 
+ 
  $("#submitBtn").click(function(){   
-   $("#preloader").show(); 
+
+   
+    
    var disposed = $("#disposed").val();
    var materials = $("#materials").val();
    var Notdangerousgoods = $("input[name='radio1']:checked").val();
@@ -139,6 +144,23 @@ script.
    var Email= $("#Email").val();
    var Phone= $("#Phone").val();
    var approximate_location= $("#approximate_location").val();
+
+   if(!disposed){
+       $(".error_m").show();
+       $(".error_m h1").html('Please enter full details');
+       setTimeout(function(){
+         $(".error_m").hide();
+
+       },3000)
+      $('html, body').animate({
+        scrollTop: $('.error_m').offset().top - 500 
+    }, 'slow');
+
+
+       return false;
+   }
+
+   $("#preloader").show();
    var data = {
          disposed : disposed,
          materials : materials,

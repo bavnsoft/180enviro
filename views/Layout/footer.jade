@@ -18,7 +18,9 @@ footer.footer
         .widget.clearfix
           ul.twitter-widget.footer-links
             li
-              a(href='#agent')  How it's work
+              a(href='/#agent')  How it's work
+            li
+             a(href='/receive-disposal-quote') Waste Disposal 
             li
               a(href='/contact-us')  Contact us
           // end links
@@ -62,3 +64,20 @@ script(src='https://maps.googleapis.com/maps/api/js?sensor=false&libraries=place
 script(src='https://unpkg.com/sweetalert/dist/sweetalert.min.js')
 // MAP & CONTACT
 script(src='js/map.js')
+// jsDeliver
+script(type='text/javascript', src='js/jquery.lazy.js')
+script(type='text/javascript', src='js/jquery.lazy.plugins.min.js')
+script(type='text/javascript', src='js/jquery.lazy.plugins.js')
+script.
+   var urls = window.location.href.split('/')[3]
+   console.log(urls);
+   if(urls=="items-available"){
+      $("#dynmic_name").html("Items avalaible");
+   }else if(urls == "receive-disposal-quote"){
+     $("#dynmic_name").html("Receive Disposal Quote");
+   }else if(urls == "contact-us"){
+     $("#dynmic_name").html("Contact Us");
+   }else{
+        $("#dynmic_name").html("Item Description");
+   }
+
