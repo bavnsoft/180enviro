@@ -70,13 +70,52 @@ script(type='text/javascript', src='js/jquery.lazy.plugins.min.js')
 script(type='text/javascript', src='js/jquery.lazy.plugins.js')
 script.
    var urls = window.location.href.split('/')[3]
-   console.log(urls);
+   console.log(urls,'--');
    if(urls=="items-available"){
       $("#dynmic_name").html("Items avalaible");
+      $(".first a").removeClass("active");
+      $(".scound a").removeClass("active");
+      $(".thired a").removeClass("active");
+      $(".forth a").removeClass("active");
+      $(".fifth a").addClass("active");
+      $(".six a").removeClass("active");
    }else if(urls == "receive-disposal-quote"){
      $("#dynmic_name").html("Receive Disposal Quote");
+      $(".first a").removeClass("active");
+      $(".scound a").removeClass("active");
+      $(".thired a").removeClass("active");
+      $(".forth a").addClass("active");
+      $(".fifth a").removeClass("active");
+      $(".six a").removeClass("active");
    }else if(urls == "contact-us"){
      $("#dynmic_name").html("Contact Us");
+      $(".first a").removeClass("active");
+      $(".scound a").removeClass("active");
+      $(".thired a").removeClass("active");
+      $(".forth a").removeClass("active");
+      $(".fifth a").removeClass("active");
+      $(".six a").addClass("active");
+   }else if(urls == "about-us"){
+      $(".first a").removeClass("active");
+      $(".scound a").removeClass("active");
+      $(".thired a").addClass("active");
+      $(".forth a").removeClass("active");
+      $(".fifth a").removeClass("active");
+      $(".six a").removeClass("active");
+   }else if(urls == "about-us"){
+      $(".first a").removeClass("active");
+      $(".scound a").removeClass("active");
+      $(".thired a").removeClass("active");
+      $(".forth a").addClass("active");
+      $(".fifth a").removeClass("active");
+      $(".six a").removeClass("active");
+   }else if(urls == "#agent"){
+      $(".first a").removeClass("active");
+      $(".scound a").addClass("active");
+      $(".thired a").removeClass("active");
+      $(".forth a").removeClass("active");
+      $(".fifth a").removeClass("active");
+      $(".six a").removeClass("active");
    }else{
         $("#dynmic_name").html("Item Description");
    }
