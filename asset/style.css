@@ -2264,10 +2264,16 @@ select.mobile-device {
     border: 0;
 }
 
-.footer-links i {
+ul.footer-links a img {
     display: inline-block;
-    width: 25px;
-    margin-right: 10px;
+    width: 76px;
+    /* margin-right: 29px; */
+    font-size: 43px;
+    color: #54f24e;
+    /* margin: 10px 3px 3px 4px; */
+    float: left;
+    margin-top: 5px;
+    height: 44px;
 }
 
 .copyrights {
@@ -2678,7 +2684,7 @@ select.mobile-device {
     position: relative;
     padding: 7px 8px;
     margin-top: 0px;
-    background: #f5f5f5;
+    
 }
 
 .support-info .info-title i{
@@ -3145,22 +3151,22 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn_dispose{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid #ccc;
+    border: 1px solid #555;
     padding: 12px 39px;
 }
 
 .radio_left_{
-      border-right: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+      border-right: 1px solid #555;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
     border-right: none;
     background: #fff;
     padding: 12px 68px;
 }
 .radio_right_{
-    border-left: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #555;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
       border-left: none;
       background: #fff;
           padding: 12px 74px;
@@ -3575,4 +3581,22 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.read_more {
 }
 .error_m {
         display: none;
+}textarea:focus, input:focus{
+    outline: none!important;
+}
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+.how_it_w img{
+    width: 100%;
+    margin: -10px -8px -7px -36px;
 }
