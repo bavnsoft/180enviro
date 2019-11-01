@@ -2112,9 +2112,11 @@ select.mobile-device {
 }
 
 .contact_form {
-    border-right: 1px solid #555;
+    border-right: 1px solid #dedede;
     padding: 0px 26px 0 15px;
     border-radius: 2px;
+    width: 90%;
+    margin-bottom: 180px;
 }
 
 .contact_form .form-control {
@@ -2231,6 +2233,7 @@ select.mobile-device {
 .footer-links a {
     color: #fff;
     display: block;
+    font-size: 14px;
 }
 
 .footer-links a:hover,
@@ -2270,7 +2273,7 @@ ul.footer-links a img {
     /* margin: 10px 3px 3px 4px; */
     float: left;
     margin-top: 5px;
-    height: 44px;
+    height: 35px;
 }
 
 .copyrights {
@@ -2668,13 +2671,14 @@ ul.footer-links a img {
 }
 
 .right-box-contact{
-    margin-bottom: 30px;
+    margin-bottom: 9px;
 }
 .right-box-contact h4{
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 400;
     padding: 0px;
-        color: #808184;
+    color: #808184;
+    margin: -5px;
 }
 
 .right-box-contact .support-info{
@@ -2685,7 +2689,7 @@ ul.footer-links a img {
 }
 
 .support-info .info-title i{
-    display: block;
+   display: block;
     font-size: 28px;
     color: #656262;
     width: 48px;
@@ -2693,7 +2697,8 @@ ul.footer-links a img {
     line-height: 48px;
     text-align: center;
     float: left;
-    margin-right: 21px;
+    margin-right: 10px;
+    margin-top: -7px;
 }
 .support-info .info-title{
     color: #808184;
@@ -3159,6 +3164,7 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn_dispose{
     border-right: none;
     background: #fff;
     padding: 12px 68px;
+
 }
 .radio_right_{
     border-left: 1px solid #555;
@@ -3239,7 +3245,7 @@ ul#pagin li {
 }
 .form-group {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .form-control-placeholder {
@@ -3457,6 +3463,7 @@ div#scrrol{
 .waste_di{
     font-weight: 600;
     color: #464646;
+    margin-bottom: 15px;
 }button.submit_form_waste_d {
     padding: 4px 35px!important;
     font-style: normal;
@@ -3590,6 +3597,8 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.read_more {
   border-color: inherit;
   -webkit-box-shadow: none;
   box-shadow: none;
+  margin-bottom: 30px;
+  line-height: 2.428571!important;
 }
 
 
@@ -3599,4 +3608,18 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.read_more {
 }
 .col-sm-2.available_button.third-btn.Chemicals_{
     padding: 0px 5px 4px 38.1px;
+}body.realestate_version #map {
+ 
+    margin-left: 19px;
+}body.realestate_version #map {
+    width: 68%!important;
+    margin-top: 42px;
+
+}.support-info .info-title{
+    font-size: 13px;
+
+}.col-md-4.contact_right {
+    margin: 0px -60px;
+}.bottom_margin{
+    margin-bottom: 26px;
 }

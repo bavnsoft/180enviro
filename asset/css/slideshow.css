@@ -197,7 +197,7 @@ body, html {
   opacity: 1;
 }
 .background_img  {
- background-image: url(../uploads/header_img.jpg);
+background-image: url(../uploads/header_img.jpg);
     height: 58%;
     /* z-index: 99999; */
     /* background-size: cover; */
@@ -206,7 +206,7 @@ body, html {
     /* background-color: red; */
     /* color: transparent; */
     /* background-size: cover; */
-    background-position: 30% 53%!important;
+    background-position: 71% 36%!important;
     background-repeat: none;
     opacity: 5.8;
     background-color: rgba(0, 0, 0, 0.5);

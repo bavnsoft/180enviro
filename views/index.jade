@@ -29,7 +29,7 @@ include Layout/header
     // end title
     // end container
     // end section
-#agent.parallax.section.db.parallax-off(style='background: #313131!important; padding: 40px 0px;')
+#agent.parallax.section.db.parallax-off(style='background: #313131!important;')
   .container
     .section-title.row.text-center
       .col-md-12.how_it_w
@@ -51,7 +51,7 @@ include Layout/header
       h3 Contact US
     // end title
     .row
-      .col-md-6
+      .col-md-8
         .contact_form
           #message_error
             h1 
@@ -59,20 +59,20 @@ include Layout/header
             fieldset.row-fluid
               .col-lg-12.col-md-12.col-sm-12.col-xs-12
                 .form-group
-                    input#emailname.form-control(type='text', required='',style="margin-bottom: 0;")
+                    input#emailname.form-control(type='text', required='', style="margin-bottom: 0;")
                     |         
                     label.contact_p.form-control-placeholder(for='name',) Email Address
               .col-lg-12.col-md-12.col-sm-12.col-xs-12
                  .form-group
-                    input#Subject.form-control(type='text', required='',style="margin-bottom: 53px;")
+                    input#Subject.form-control(type='text', required='', style="margin-bottom: 53px;")
                     |         
                     label.contact_p.form-control-placeholder(for='name') Subject
               .col-lg-12.col-md-12.col-sm-12.col-xs-12
-                textarea.form-control(id="comment" rows='6', placeholder='Message')
+                textarea.form-control( rows='6', id="comment", placeholder='Message')
               .col-lg-12.col-md-12.col-sm-12.col-xs-12.text-center
                 button.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn(type='button', style="background: #505050;",onclick="save()")  Send 
       // end col
-      .col-md-6
+      .col-md-4.contact_right
         .right-box-contact
           .support-info
             .info-title
@@ -90,7 +90,7 @@ include Layout/header
         .right-box-contact
           .support-info
             .info-title
-              i.fa.fa-map-marker(aria-hidden='true')
+              i.fa.fa-map-marker(aria-hidden='true',style="font-size: 40px;")
               h4 Location
               |                                 123 Street, Perth, WA
         #map
