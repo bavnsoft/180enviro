@@ -40,36 +40,36 @@ include Layout/inner_header
             label.waste_di(for='exampleInputPassword1') How are the materials stored, what kind of units and how many?
             textarea#materials.form-control(type='text')
           .row
-            .col-sm-6(style='padding-right: 0;')
+            .col-sm-6.row_padding_(style='padding-right: 0;')
               label.waste_di.radio.radio_left_
                 | Not dangerous goods
                 input(type='radio', checked='checked', value="Not dangerous goods" name='radio1')
                 span.checkround
-            .col-sm-6(style='padding-left: 0;')
+            .col-sm-6.row_padding_(style='padding-left: 0;')
               .custom-control.custom-radio
                 label.waste_di.radio.radio_right_
                   | Dangerous goods
                   input(type='radio',  value="Dangerous goods" name='radio1')
                   span.checkround
           .row
-            .col-sm-6(style='padding-right: 0;')
+            .col-sm-6.row_padding_(style='padding-right: 0;')
               label.waste_di.radio.radio_left_
                 | Pickup by disposal site
                 input(type='radio', checked='checked', value="Pickup by disposal site" name='radio2')
                 span.checkround
-            .col-sm-6(style='padding-left: 0;')
+            .col-sm-6.row_padding_(style='padding-left: 0;')
               .custom-control.custom-radio
                 label.waste_di.radio.radio_right_
                   | Delivery to disposal site by us
                   input(type='radio',  value="Delivery to disposal site by us" name='radio2')
                   span.checkround
           .row(style='margin-bottom: 45px;')
-            .col-sm-6(style='padding-right: 0;')
+            .col-sm-6.row_padding_(style='padding-right: 0;')
               label.waste_di.radio.radio_left_
                 | We regulary dispose of this material
                 input(type='radio', checked='checked', checked='checked', value="We regulary dispose of this material" name='radio3')
                 span.checkround
-            .col-sm-6(style='padding-left: 0;')
+            .col-sm-6.row_padding_(style='padding-left: 0;')
               .custom-control.custom-radio
                 label.waste_di.radio.radio_right_
                   | This is a one-off or rare disposal

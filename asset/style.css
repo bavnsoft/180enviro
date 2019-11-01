@@ -2112,10 +2112,8 @@ select.mobile-device {
 }
 
 .contact_form {
-    border: 1px solid #ededed;
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.1);
-    background-color: #f2f3f5;
-    padding: 40px 30px;
+    border-right: 1px solid #555;
+    padding: 0px 26px 0 15px;
     border-radius: 2px;
 }
 
@@ -2123,7 +2121,6 @@ select.mobile-device {
     border-radius: 0px;
     border: none;
     border-bottom: 1px solid #111;
-    background-color: #f2f3f5;
     margin-bottom: 30px;
     box-sizing: border-box;
     color: #000000;
@@ -2682,7 +2679,7 @@ ul.footer-links a img {
 
 .right-box-contact .support-info{
     position: relative;
-    padding: 7px 8px;
+    padding: 3px 8px;
     margin-top: 0px;
     
 }
@@ -2740,17 +2737,17 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_left_btn {
 }
 
 button.btn.btn-light.btn-radius.grd1.btn-brd.view_materials_right_btn{
-        background: #000;
+         background: #000;
     color: #fff!important;
     padding: 13px 57px;
     font-style: normal;
     font-weight: 600;
-    padding: 6px 61px!important;
+    padding: 10px 79px!important;
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
     border-radius: 4px;
-    margin-top: 25px;
+    margin-top: 44px;
     color: #fff!important;
     border: none;
 }
@@ -3416,7 +3413,7 @@ label.contact_label_ {
 
 form#contactform{
         margin: auto;
-       width: 75%;
+       width: 86%;
 }
 
 button.contact_me_ {
@@ -3597,6 +3594,9 @@ a.btn.btn-light.btn-radius.grd1.btn-brd.read_more {
 
 
 .how_it_w img{
-    width: 100%;
+    width: 100%!important;
     margin: -10px -8px -7px -36px;
+}
+.col-sm-2.available_button.third-btn.Chemicals_{
+    padding: 0px 5px 4px 38.1px;
 }
