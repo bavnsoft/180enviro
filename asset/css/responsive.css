@@ -429,10 +429,29 @@
 }
 
 @media (max-width: 600px) {
+  div#pic-1 img {
+        width: 100%;
+        height: 320px;
+   }
 
+   .preview-pic.tab-content.purchase_btn a{
+    width: 100%;
+   }
     a.btn.btn-light.btn-radius.grd1.btn-brd._view_avial_{
             font-size: 12px;
-    }
+    }p.lead_desc_expla {
+        
+    text-align: justify;
+}.col-sm-4.cate_text_title_ {
+    text-align: center;
+}a.back_detail_s_a_item {
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    bottom: 0;
+    left: 25%;
+    right: 0;
+}
 form#contactform {
     margin: auto;
     width: 100%;
