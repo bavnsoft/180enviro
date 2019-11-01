@@ -353,7 +353,7 @@
     .footer .widget,
     .logos .col-md-2,
     .service-widget {
-        margin: 15px 0;
+        margin: 0px 0;
     }
     .features-left i {
         float: left;
@@ -442,6 +442,13 @@
    .col-md-4.contact_right {
     margin: 0;
 }
+.res_contact_{
+        border-bottom: 1px solid #dedede;
+    margin-bottom: 25px;
+}body.realestate_version #map {
+    width: 89%!important;
+    margin-top: 42px;
+}
 
    .preview-pic.tab-content.purchase_btn a{
     width: 100%;
@@ -452,14 +459,18 @@
         
     text-align: justify;
 }.col-sm-4.cate_text_title_ {
-    text-align: center;
+        margin-left: 31px;
 }a.back_detail_s_a_item {
     position: absolute;
     z-index: 9999;
-    top: 0;
+    top: 10px;
     bottom: 0;
     left: 25%;
     right: 0;
+}.ex_main h2{
+    text-align: left!important;
+    margin-bottom: 55px;
+
 }
 form#contactform {
     margin: auto;
@@ -484,10 +495,13 @@ form#contactform {
         margin: 46px;
        
     }.form-group {
-        position: relative;
-        margin-bottom: 1.5rem;
-        padding: 11px;
-    }
+    position: relative;
+    margin-bottom: 0;
+    padding: 3px 0;
+    border: 2px saddlebrown;
+}.contact_form .form-control{
+    border-bottom: 2px solid #111;
+}
     .radio_right_ {
         border-left: 1px solid gray!important;
         border-top: none;
@@ -623,12 +637,17 @@ form#contactform {
 		padding-bottom: 30px;
 	}
 	.right-box-contact .support-info{
-		padding: 20px 20px;
+		padding: 5px 11px;
 	}
 	.contact_form{
-		padding: 20px 20px;
+		padding: 0;
+        width: 100%;
     }
     .big-tagline.clearfix{
         padding: 0px!important;
+    }
+    .contact_form textarea{
+        border-radius: 5px!important;
+        border: 2px solid #111!important;
     }
 }
