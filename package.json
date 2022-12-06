@@ -10,11 +10,11 @@
 		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"dependencies": {
-		"body-parser": "^1.19.0",
+		"body-parser": "^1.20.1",
 		"child_process": "^1.0.2",
 		"email-templates": "^6.0.3",
 		"exec-php": "0.0.5",
-		"express": "3.4.4",
+		"express": "3.21.2",
 		"ftp-client": "^0.2.2",
 		"google-auth-library": "^5.4.0",
 		"google-spreadsheet": "^2.0.8",
